@@ -1,17 +1,21 @@
 ﻿using MediatR;
+using TUEPROJ.Application.DTOs;
 using TUEPROJ.Domain;
 
 namespace TUEPROJ.Application.Queries
 {
-    public class GetAllQuery:IRequest<IEnumerable<User>>
+    public class GetUsersQuery:IRequest<PaginatedUserResponse>
     {
         public int Page { get; }
         public int PageSize { get; }
 
-        public GetAllQuery(int page,int pageSize)
+        public string? SearchTerm { get; }
+
+        public GetUsersQuery(int page,int pageSize, string? searchTerm=null)
         {
             Page = page;
             PageSize = pageSize;
+            SearchTerm = searchTerm;
         }
 
     }

@@ -12,7 +12,16 @@ namespace TUEPROJ.Domain
         public UserRole Role { get; set; }
 
         public bool Status { get; set; }
+
+        public void ToggleStatus()
+        {
+            Status = !Status;
+        }
+
+
     }
+
+    
 
    
 
